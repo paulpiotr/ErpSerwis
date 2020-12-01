@@ -7,9 +7,6 @@
 [submodule "Log4netLogger"]
 	path = Log4netLogger
 	url = https://github.com/paulpiotr/Log4netLogger.git
-[submodule "ErpSerwis.WpfApp.Debug"]
-	path = ErpSerwis.WpfApp.Debug
-	url = https://github.com/paulpiotr/ErpSerwis.WpfApp.Debug.git
 [submodule "ErpSerwis.WpfApp.Release"]
 	path = ErpSerwis.WpfApp.Release
 	url = https://github.com/paulpiotr/ErpSerwis.WpfApp.Release.git
