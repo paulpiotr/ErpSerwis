@@ -1,0 +1,92 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>ErpSerwis.WpfApp</RootNamespace>
+    <EnableDefaultItems>False</EnableDefaultItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Markdig.Wpf" Version="0.4.0" />
+    <PackageReference Include="MvvmCross" Version="7.1.2" />
+    <PackageReference Include="Telerik.UI.for.Wpf.NetCore.Xaml" Version="2020.2.617" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewsResources\NavigationViewDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\DatabaseConfigurationUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\UserControlCompleteDatabaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Database\WindowCompleteDatabaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StudentListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControlMainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\NavigationViewItemModel.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCommandProvider\Database\DatabaseConfigurationCommandProvider.cs" />
+    <Compile Include="ViewCommandProvider\Database\CompleteDatabaseCommandProvider.cs" />
+    <Compile Include="ViewCommandProvider\StudentsGridDataCommandAddGradeProvider.cs" />
+    <Compile Include="ViewCommandProvider\StudentsGridDataFormCommandProvider.cs" />
+    <Compile Include="ViewFields\TextBoxViewField.cs" />
+    <Compile Include="ViewModels\Database\CompleteDatabaseViewModel.cs" />
+    <Compile Include="ViewModels\Database\DatabaseConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\NavigationViewViewModel.cs" />
+    <Compile Include="ViewModels\StudentListViewModel.cs" />
+    <Compile Include="Views\Database\DatabaseConfigurationUserControl.xaml.cs" />
+    <Compile Include="Views\Database\UserControlCompleteDatabaseView.xaml.cs" />
+    <Compile Include="Views\Database\WindowCompleteDatabaseView.xaml.cs" />
+    <Compile Include="Views\StudentListView.xaml.cs" />
+    <Compile Include="Views\UserControlMainWindow.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ErpSerwis.Core\ErpSerwis.Core.csproj" />
+  </ItemGroup>
+
+  <Target Name="SetEnvConfig" BeforeTargets="Compile">
+    <Copy SourceFiles="..\..\README.md" DestinationFiles="README.md" OverwriteReadOnlyFiles="true" />
+  </Target>
+
+</Project>

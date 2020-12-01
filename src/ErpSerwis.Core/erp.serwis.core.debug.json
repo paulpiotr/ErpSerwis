@@ -1,0 +1,7 @@
+{
+  "CheckForUpdateEveryDays": 0,
+  "LastMigrateDateTime": null,
+  "ConnectionStrings": {
+    "ErpSerwisDbContext": "Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename=%Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)%\\ErpSerwisMSSQLLocalDB\\ErpSerwisMSSQLLocalDB.mdf; Database=%AttachDbFilename%; MultipleActiveResultSets=true; Integrated Security=True; Trusted_Connection=Yes; Max Pool Size=65536; Pooling=True;"
+  }
+}

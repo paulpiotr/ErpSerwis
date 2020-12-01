@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="ErpSerwis.WpfApp.Views.StudentListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ErpSerwis.WpfApp.ViewModels"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:viewcommandprovider="clr-namespace:ErpSerwis.WpfApp.ViewCommandProvider"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:StudentListViewModel x:Key="model" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.618034*" />
+        </Grid.RowDefinitions>
+        <telerik:RadGridView
+            x:Name="studentsGridView"
+            GroupRenderMode="Flat"
+            RowIndicatorVisibility="Collapsed"
+            CanUserFreezeColumns="False"
+            ShowSearchPanel="False"
+            IsReadOnly="True"
+            Margin="4, 4"
+            Padding="4, 4"
+            IsSynchronizedWithCurrentItem="True"
+            IsBusy="True"
+            ItemsSource="{Binding ICollectionViewStudents, Source={StaticResource model}}"
+            >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewColumn>
+                    <telerik:GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton
+                                x:Name="addGradeButton"
+                                Content="Dodaj ocenę"
+                                telerik:TouchManager.IsTouchHitTestVisible="False"
+                                CommandParameter="{Binding}"
+                                >
+                                <telerik:RadButton.Command>
+                                    <viewcommandprovider:StudentsGridDataCommandAddGradeProvider />
+                                </telerik:RadButton.Command>
+                            </telerik:RadButton>
+                        </DataTemplate>
+                    </telerik:GridViewColumn.CellTemplate>
+                </telerik:GridViewColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <telerik:RadDataForm
+            x:Name="studentsGridDataForm"
+            Grid.Row="1"
+            Margin="4, 4"
+            Padding="4, 4"
+            EditEnding="StudentsForm_EditEnding"
+            AddedNewItem="StudentsForm_AddedNewItem"
+            DeletedItem="StudentsForm_DeletedItem"
+            AutoGeneratingField="StudentsForm_AutoGeneratingField"
+            IsEnabled="False"
+            ItemsSource="{Binding ICollectionViewStudents, Source={StaticResource model}}"
+            >
+            <telerik:RadDataForm.CommandProvider>
+                <viewcommandprovider:StudentsGridDataFormCommandProvider DataForm="{Binding ElementName=studentsGridDataForm}"/>
+            </telerik:RadDataForm.CommandProvider>
+        </telerik:RadDataForm>
+    </Grid>
+</UserControl>

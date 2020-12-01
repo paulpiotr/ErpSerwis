@@ -1,0 +1,19 @@
+﻿<Window x:Class="ErpSerwis.WpfApp.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                Title="Erp Serwis" Height="600" Width="800">
+    <Grid x:Name="layoutRoot" Background="White">
+        <telerik:RadNavigationView
+            x:Name="navigationView"
+            ItemsSource="{Binding NavigationViewItemModelList}"
+            ItemContainerStyle="{DynamicResource NavigationViewItemStyle}"
+            Loaded="OnNavigationViewLoaded"
+            SelectionChanged="OnNavigationViewSelectionChanged"
+            BorderBrush="#3949a4"
+            BorderThickness="1"
+            PaneHeader="Erp Serwis"
+            >
+        </telerik:RadNavigationView>
+    </Grid>
+</Window>
