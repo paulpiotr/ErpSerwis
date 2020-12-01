@@ -8,6 +8,8 @@
 - Umożliwia dodanie oceny dla studenta, który już został dodany do bazy (obsługa dodania oceny w nowym oknie)
 - Może być użyte SQLite
 - Jeśli wykorzystany jest MSSQL Server, to ConnectionString musi być w Properties oraz musi być dostarczony skrypt przygotowujący bazę
+## Wersja binarna wraz z instalatorem znajduje się pod adresem
+### https://github.com/paulpiotr/ErpSerwis.WpfApp.Release
 ## Pobranie repozytorium z projektem
 - Link z repozytorium znajduje sięna stronie: https://github.com/paulpiotr/ErpSerwis
 - Link do repozytorium z wersjami binarnymi i instalatorem znajduje się na stronie: https://github.com/paulpiotr/ErpSerwis.WpfApp.Release
